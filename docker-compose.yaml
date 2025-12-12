@@ -1,0 +1,15 @@
+services:
+  db:
+    container_name: my_postgres
+    image: postgres:18
+    restart: always
+    environment:
+      POSTGRES_DB: todo
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    ports:
+      - "5433:5432"
+    volumes:
+      - todolist_db_data:/var/lib/postgresql
+volumes:
+  todolist_db_data:
